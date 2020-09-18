@@ -27,6 +27,15 @@ class EmojiTableViewController: UITableViewController {
         self.title = "Emoji Reader"
     }
     
+    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
+        guard segue.identifier == "saveSegue" else { return }
+        guard let newEmojiVC = segue.source as? NewEmojiTableViewController else {return}
+        let newIndexPath = IndexPath(row: objects.count, section: 0)
+        objects.append( newEmojiVC.emoji)
+
+        self.tableView.insertRows(at: [newIndexPath], with: .fade )
+    }
+    
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,5 +76,34 @@ class EmojiTableViewController: UITableViewController {
         let movedEmoji = objects.remove(at: sourceIndexPath.row)
         objects.insert(movedEmoji, at: destinationIndexPath.row)
         tableView.reloadData()
+    }
+    
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let done = doneAction(at: indexPath)
+        let favoutite = favouriteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [done, favoutite])
+    }
+    
+    func doneAction(at indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .destructive, title: "done") {(action, view, completion) in
+            self.objects.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            completion(true)
+        }
+        action.backgroundColor = .systemGreen
+        action.image = UIImage(systemName: "checkmark.circle")
+        return action
+    }
+    
+    func favouriteAction(at indexPath: IndexPath) -> UIContextualAction {
+        var emoji = objects[indexPath.row]
+        let action = UIContextualAction(style: .normal, title: "Favourite") { (action, view, completion) in
+            emoji.isFavourite = !emoji.isFavourite
+            self.objects[indexPath.row] = emoji
+            completion(true)
+        }
+        action.backgroundColor = emoji.isFavourite ? .systemRed : .systemGray
+        action.image = UIImage(systemName: "heart")
+        return action
     }
 }
