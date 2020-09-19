@@ -18,22 +18,33 @@ class EmojiTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         self.title = "Emoji Reader"
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard segue.identifier == "editEmoji" else { return }
+        guard let navigationVC = segue.destination as? UINavigationController else { return }
+        guard let newEmojiTVC = navigationVC.topViewController as? NewEmojiTableViewController else { return }
+        guard let indexPath = self.tableView.indexPathForSelectedRow else { return }
+        let emoji = objects[indexPath.row]
+        newEmojiTVC.emoji = emoji
+        newEmojiTVC.title = "Edit"
     }
     
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
         guard segue.identifier == "saveSegue" else { return }
         guard let newEmojiVC = segue.source as? NewEmojiTableViewController else {return}
-        let newIndexPath = IndexPath(row: objects.count, section: 0)
-        objects.append( newEmojiVC.emoji)
-
-        self.tableView.insertRows(at: [newIndexPath], with: .fade )
+        let emoji = newEmojiVC.emoji
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            objects[selectedIndexPath.row] = emoji
+            tableView.reloadRows(at: [selectedIndexPath], with: .fade  )
+        } else {
+            objects.append( newEmojiVC.emoji)
+            let newIndexPath = IndexPath(row: objects.count, section: 0)
+         self.tableView.insertRows(at: [newIndexPath], with: .fade )
+        }
     }
     
     // MARK: - Table view data source

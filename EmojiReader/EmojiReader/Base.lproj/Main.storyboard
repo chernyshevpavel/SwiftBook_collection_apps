@@ -15,33 +15,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="emojiCell" rowHeight="69" id="OAE-Rz-Shl" customClass="EmojiTableViewCell" customModule="EmojiReader" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="69"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="emojiCell" rowHeight="70" id="OAE-Rz-Shl" customClass="EmojiTableViewCell" customModule="EmojiReader" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OAE-Rz-Shl" id="ElF-Zb-jNP">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="56c-LB-bGC">
-                                            <rect key="frame" x="8" y="16" width="398" height="37"/>
+                                            <rect key="frame" x="8" y="16" width="398" height="38"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="😇" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udr-VN-2p5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="23" height="37"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="23" height="38"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fkK-gK-xVg">
-                                                    <rect key="frame" x="33" y="0.0" width="365" height="37"/>
+                                                    <rect key="frame" x="33" y="0.0" width="365" height="38"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z36-3c-fV1">
-                                                            <rect key="frame" x="0.0" y="0.0" width="365" height="18.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="365" height="19"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keep smiling every day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HBk-NP-Lfd">
-                                                            <rect key="frame" x="0.0" y="18.5" width="365" height="18.5"/>
+                                                            <rect key="frame" x="0.0" y="19" width="365" height="19"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -62,6 +62,7 @@
                                     <outlet property="descriptionLabel" destination="HBk-NP-Lfd" id="CeR-e8-GJM"/>
                                     <outlet property="emojiLabel" destination="udr-VN-2p5" id="a6e-E8-7CP"/>
                                     <outlet property="nameLabel" destination="z36-3c-fV1" id="8sA-UT-azG"/>
+                                    <segue destination="CTd-3m-9cq" kind="show" identifier="editEmoji" id="Rbc-kd-U15"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -249,4 +250,7 @@
             <point key="canvasLocation" x="1476.8115942028987" y="39.508928571428569"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Rbc-kd-U15"/>
+    </inferredMetricsTieBreakers>
 </document>

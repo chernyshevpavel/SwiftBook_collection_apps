@@ -30,7 +30,14 @@ class NewEmojiTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
         updeteSaveBtnState()
+    }
+    
+    private func updateUI() {
+        self.emojiTF.text = emoji.emoji
+        self.nameTF.text = emoji.name
+        self.descriptionTF.text = emoji.description
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
