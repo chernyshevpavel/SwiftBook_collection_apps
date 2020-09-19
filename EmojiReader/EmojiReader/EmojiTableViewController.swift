@@ -23,7 +23,7 @@ class EmojiTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
+         super.prepare(for: segue, sender: sender)
         guard segue.identifier == "editEmoji" else { return }
         guard let navigationVC = segue.destination as? UINavigationController else { return }
         guard let newEmojiTVC = navigationVC.topViewController as? NewEmojiTableViewController else { return }
