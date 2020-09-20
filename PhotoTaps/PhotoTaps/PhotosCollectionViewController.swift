@@ -10,8 +10,23 @@ import UIKit
 
 class PhotosCollectionViewController: UICollectionViewController {
 
+    let itemsPerRow: CGFloat = 2;
+    let sectionInserts = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        collectionView.showsVerticalScrollIndicator = false
+//        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+//        let screenWidth = collectionView.frame.width
+//        let itemsPerRow: CGFloat = 2;
+//        let itemsSpecing: CGFloat = 20;
+//        let allSpacingWidth = itemsSpecing * (itemsPerRow + 1)
+//        let cellSize = (screenWidth - allSpacingWidth) / itemsPerRow
+//        layout.itemSize = CGSize(width: cellSize, height: cellSize)
+//        layout.sectionInset = UIEdgeInsets(top: itemsSpecing, left: itemsSpecing, bottom: itemsSpecing, right: itemsSpecing)
+//        layout.minimumLineSpacing = itemsSpecing
+//        layout.minimumInteritemSpacing = itemsSpecing
+//        layout.scrollDirection = .vertical
     }
 
     // MARK: UICollectionViewDataSource
@@ -39,29 +54,26 @@ class PhotosCollectionViewController: UICollectionViewController {
 }
 
 extension PhotosCollectionViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let screenSize = UIScreen.main.bounds
-        let screenWidth = screenSize.width
-        let itemsPerRow = 2;
-        let itemsSpecing = 20;
-        let allSpacingWidth = CGFloat(itemsSpecing + (itemsSpecing * (itemsPerRow - 1)) + itemsSpecing)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let screenWidth = collectionView.frame.width
+        let itemsSpecing: CGFloat = sectionInserts.left;
+        let allSpacingWidth = itemsSpecing * (itemsPerRow + 1)
         let cellSize = (screenWidth - allSpacingWidth) / CGFloat(itemsPerRow)
-        
+
         return CGSize(width: cellSize, height: cellSize)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        return sectionInserts
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-         return 20
+        return sectionInserts.left
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 20
+        return sectionInserts.left
     }
 }
  
