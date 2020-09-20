@@ -13,6 +13,7 @@
 		1D7AD3B3251604590061ABAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D7AD3B2251604590061ABAF /* Assets.xcassets */; };
 		1D7AD3B6251604590061ABAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D7AD3B4251604590061ABAF /* LaunchScreen.storyboard */; };
 		1D93E98A25170C7300664252 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D93E98925170C7300664252 /* PhotoCell.swift */; };
+		1D93E98C25179D0000664252 /* PhoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D93E98B25179D0000664252 /* PhoteViewController.swift */; };
 		1DFAC3CE25160631001AF48A /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFAC3CD25160631001AF48A /* PhotosCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		1D7AD3B5251604590061ABAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D7AD3B7251604590061ABAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D93E98925170C7300664252 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
+		1D93E98B25179D0000664252 /* PhoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoteViewController.swift; sourceTree = "<group>"; };
 		1DFAC3CD25160631001AF48A /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +67,7 @@
 				1D7AD3B4251604590061ABAF /* LaunchScreen.storyboard */,
 				1D7AD3B7251604590061ABAF /* Info.plist */,
 				1DFAC3CD25160631001AF48A /* PhotosCollectionViewController.swift */,
+				1D93E98B25179D0000664252 /* PhoteViewController.swift */,
 				1D93E98925170C7300664252 /* PhotoCell.swift */,
 			);
 			path = PhotoTaps;
@@ -145,6 +148,7 @@
 				1DFAC3CE25160631001AF48A /* PhotosCollectionViewController.swift in Sources */,
 				1D7AD3AA251604540061ABAF /* AppDelegate.swift in Sources */,
 				1D7AD3AC251604540061ABAF /* SceneDelegate.swift in Sources */,
+				1D93E98C25179D0000664252 /* PhoteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

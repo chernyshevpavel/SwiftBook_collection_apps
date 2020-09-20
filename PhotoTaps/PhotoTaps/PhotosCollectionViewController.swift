@@ -42,6 +42,16 @@ class PhotosCollectionViewController: UICollectionViewController {
         // #warning Incomplete implementation, return the number of items
         return photos.count 
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pickPhotoSegue" {
+            guard let photoVC = segue.destination as? PhoteViewController else {
+                return
+            }
+            guard let cell = sender as? PhotoCell else { return }
+            photoVC.image = cell.imageView.image
+        }
+    }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
