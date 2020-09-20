@@ -23,12 +23,27 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="u32-uI-p4D" customClass="PhotoCell" customModule="PhotoTaps" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ACN-He-13x">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog12" id="AIv-qt-ddK">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="0.0"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="AIv-qt-ddK" firstAttribute="top" secondItem="ACN-He-13x" secondAttribute="top" id="68r-lp-tnC"/>
+                                        <constraint firstAttribute="trailing" secondItem="AIv-qt-ddK" secondAttribute="trailing" id="CtO-Sj-pSK"/>
+                                        <constraint firstItem="AIv-qt-ddK" firstAttribute="leading" secondItem="ACN-He-13x" secondAttribute="leading" id="Hkc-8P-d0H"/>
+                                        <constraint firstAttribute="bottom" secondItem="AIv-qt-ddK" secondAttribute="bottom" id="Mzy-RG-NwO"/>
+                                    </constraints>
                                 </collectionViewCellContentView>
+                                <connections>
+                                    <outlet property="imageView" destination="AIv-qt-ddK" id="KyR-yz-oUC"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -61,4 +76,7 @@
             <point key="canvasLocation" x="53.623188405797109" y="130.58035714285714"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dog12" width="640" height="426"/>
+    </resources>
 </document>
